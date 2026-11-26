@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Note app</title>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <a class="mail-btn" href="https://mail.google.com/mail/?view=cm&fs=1&to=galiydmitri@gmail.com&su=Вопрос%20с%20сайта&body=Здравствуйте!" target="_blank" rel="noopener noreferrer" aria-label="Написать на почту">
+                <svg class="icon-mail" xmlns="http://w3.org" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect width="20" height="16" x="2" y="4" rx="3"/>
+                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                </svg>
+                <span>Отправить отзыв</span>
+            </a>
+        </div>
+    </header>
+    <main>
+        <div class="home-container">
+            <div class="filter-container">
+                <button type="button" class="filter">Все</button>
+                <button type="button" class="filter">Последние</button>
+            </div>
+
+            <div class="format-container">
+                <div class="layout"></div>
+                <button type="button" class="format is-active list-btn">Списки</button>
+                <button type="button" class="format note-btn">Заметки</button>
+            </div>
+
+            <div class="search-wrapper">
+                <svg class="icon-search" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"/>
+                    <path d="m21 21-4.3-4.3"/>
+                </svg>
+                <input type="text" class="search" placeholder="Поиск...">
+            </div>
+
+            <button type="button" class="open-btn" aria-label="Создать заметку">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plus preview-icon">
+                    <path d="M5 12h14"/>
+                    <path d="M12 5v14"/>
+                </svg>
+            </button>
+
+            <div class="input-container">
+                <input type="text" class="title-input" placeholder="Название списка">
+                <div class="content-input" contenteditable="true" data-placeholder="Слова или пункты списка..."></div>
+                <div class="slider">
+                    <p class="text-slider">Проведите, чтобы добавить</p>
+                    <div class="slider-circle">
+                        <svg class="icon-arrow" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right preview-icon">
+                            <path d="m9 18 6-6-6-6"/>
+                        </svg>
+
+                        <svg class="icon-check is-disable" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path d="M5 13L9 17L19 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg"></div>
+
+            <div class="list">
+                <div class="is-empty-container">
+                    <div class="empty-icon-box">
+                        <svg class="icon-empty" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <path d="M14 2v6h6"/>
+                            <path d="M9 15h6"/>
+                        </svg>
+                    </div>
+                    <p class="empty-text">На данный момент списков нет</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="bin-container is-disable">
+            <div class="bin-header">
+                <svg class="icon-bin-title" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 7h16"/>
+                    <path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/>
+                    <path d="M6 7l.8 11.2A3 3 0 0 0 9.8 21h4.4a3 3 0 0 0 3-2.8L18 7"/>
+                </svg>
+                <p class="bin-title">Удаленные</p>
+            </div>
+            <div class="deleted-list">
+                <div class="is-empty-container">
+                    <div class="empty-icon-box">
+                        <svg class="icon-empty" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 7h16"/>
+                            <path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/>
+                            <path d="M6 7l.8 11.2A3 3 0 0 0 9.8 21h4.4a3 3 0 0 0 3-2.8L18 7"/>
+                        </svg>
+                    </div>
+                    <p class="empty-text">На данный момент списков нет</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="more-bar"></div>
+
+        <div class="menu">
+            <button type="button" class="home-btn is-active" aria-label="Главная">
+                <svg class="icon-home" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 11.2c0-.9.4-1.7 1.1-2.3l6.2-5.1c1-.8 2.4-.8 3.4 0l6.2 5.1c.7.6 1.1 1.4 1.1 2.3V18a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3v-6.8Z"/>
+                </svg>
+            </button>
+            <button type="button" class="bin-btn" aria-label="Корзина">
+                <svg class="icon-bin" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 7h16"/>
+                    <path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/>
+                    <path d="M6 7l.8 11.2A3 3 0 0 0 9.8 21h4.4a3 3 0 0 0 3-2.8L18 7"/>
+                </svg>
+            </button>
+        </div>
+    </main>
+    <script type="module" src="JS/index.js"></script>
+</body>
+</html>
