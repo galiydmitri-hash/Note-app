@@ -1,30 +1,15 @@
 :root {
     --main-bg: #0d6efd;
-    --bg-card: #ffffff;
+    --bg-card: white;
     --line: rgb(243, 243, 243);
 
-    --main-text: #000000;
+    --main-text: black;
     --text-secondary: rgb(223, 223, 223);
 
     --btn-bg: radial-gradient(145.16% 145.16% at 50% 50%, #0c61f5 0%, #1466f5 14.29%, #377df7 30%, #fafcff 100%);
     --btn-border: 2px solid #9dbffb;
 
     --font-family: 'Inter', sans-serif;
-
-    --header-h: 54px;
-    --menu-h: 76px;
-    --page-px: 12px;
-    --stack-gap: 14px;
-
-    --fs-note-title: 26px;
-    --fs-note-text: 21px;
-    --fs-list-item: 21px;
-    --fs-input: 21px;
-    --fs-filter: 21px;
-    --fs-bin-title: 32px;
-    --fs-btn-action: 21px;
-    --fs-empty: 26px;
-    --fs-time: 16px;
 }
 
 *,
@@ -54,28 +39,27 @@ body::-webkit-scrollbar {
     display: none;
 }
 
-/* Верхняя панель */
 header {
-    height: var(--header-h);
+    height: 50px;
     width: 100%;
     flex-shrink: 0;
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    padding: 0 var(--page-px);
+    padding: 0 15px;
 }
 
 .mail-btn {
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    padding: 8px 15px;
+    padding: 6px 12px;
     border-radius: 50px;
     background: rgba(255, 255, 255, 0.2);
     border: 1px solid rgba(255, 255, 255, 0.45);
     color: white;
     text-decoration: none;
-    font-size: 16px;
+    font-size: 14px;
     transition: 0.2s;
 }
 
@@ -83,16 +67,14 @@ header {
     background: rgba(255, 255, 255, 0.3);
 }
 
-/* Основной контейнер */
 main {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    gap: var(--stack-gap);
-    height: calc(100% - var(--header-h));
+    gap: 15px;
+    height: calc(100% - 50px);
     width: 100%;
-    min-height: 0;
 }
 
 .home-container,
@@ -101,15 +83,14 @@ main {
     opacity: 1;
     pointer-events: auto;
     height: 100%;
-    min-height: 0;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: flex-start;
     flex-direction: column;
-    gap: var(--stack-gap);
-    transition: 0.2s;
-    padding-bottom: calc(var(--menu-h) + 20px + env(safe-area-inset-bottom, 0px));
+    gap: 15px;
+    transition: 0.20s;
+    padding-bottom: calc(85px + env(safe-area-inset-bottom, 0px));
     scrollbar-width: none;
 }
 
@@ -125,10 +106,9 @@ main {
     display: none;
 }
 
-/* Базовые кнопки */
 button {
     border: var(--btn-border);
-    background: var(--btn-bg);
+    background-color: var(--btn-bg);
     color: var(--text-secondary);
     box-shadow: 0 0 39px 5px #ffffff59 inset;
     border-radius: 50px;
@@ -138,86 +118,42 @@ button {
     -webkit-tap-highlight-color: transparent;
 }
 
-/* Фильтры и переключатель формата */
 .filter-container {
-    min-height: 60px;
-    height: auto;
+    height: 60px;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    flex-wrap: wrap;
     gap: 10px;
-    padding: 0 var(--page-px);
+    padding: 0 15px;
     flex-shrink: 0;
 }
 
 .filter {
-    min-height: 52px;
-    height: auto;
+    height: 50px;
     width: auto;
-    padding: 9px 18px;
-    font-size: var(--fs-filter);
-    line-height: 1.15;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+    padding: 0 15px;
+    font-size: 20px;
 }
 
-.format-container {
-    --pad: 2.5px;
-    --seg-w: 102px;
-    position: relative;
-    height: 58px;
-    width: calc(var(--seg-w) * 2 + var(--pad) * 2);
-    flex-shrink: 0;
+.open-btn {
+    height: 60px;
+    width: 60px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: var(--pad);
-    background-color: white;
-    border-radius: 60px;
-}
-
-.layout {
-    position: absolute;
-    top: var(--pad);
-    left: var(--pad);
-    height: calc(100% - var(--pad) * 2);
-    width: var(--seg-w);
-    z-index: 1;
-    border-radius: 60px;
-    background-color: var(--main-bg);
-    box-shadow: 0 0 30px 5px #ffffff33 inset;
-    transition: 0.25s;
-}
-
-.format {
-    height: 100%;
-    width: var(--seg-w);
-    background-color: transparent;
-    background-image: none;
-    box-shadow: none;
-    border: none;
-    color: var(--text-secondary);
-    font-size: 17px;
-    border-radius: 0;
-    z-index: 2;
-    transition: 0.15s;
-}
-
-.format.is-active {
-    font-size: var(--fs-filter);
-    font-weight: 500;
+    justify-content: center;
+    position: fixed;
+    bottom: calc(85px + env(safe-area-inset-bottom, 0px));
+    right: 15px;
     color: white;
+    z-index: 2;
 }
 
-/* Поиск */
 .search-wrapper {
     position: relative;
     height: 60px;
     width: 450px;
-    max-width: calc(100% - var(--page-px) * 2);
+    max-width: calc(100% - 30px);
     flex-shrink: 0;
     display: flex;
     align-items: center;
@@ -225,10 +161,9 @@ button {
 
 .icon-search {
     position: absolute;
-    left: 16px;
+    left: 15px;
     color: white;
     pointer-events: none;
-    flex-shrink: 0;
 }
 
 input,
@@ -238,9 +173,8 @@ input,
     font-family: var(--font-family);
     border-radius: 30px;
     color: white;
-    padding: 0 16px;
-    font-size: var(--fs-input);
-    line-height: 1.35;
+    padding: 0 15px;
+    font-size: 20px;
     font-weight: 400;
     outline: none;
     transition: 0.2s;
@@ -259,24 +193,30 @@ input::placeholder {
 .search {
     height: 100%;
     width: 100%;
-    padding-left: 48px;
+    padding-left: 45px;
 }
 
-/* Плавающая кнопка создания */
-.open-btn {
-    height: 64px;
-    width: 64px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: fixed;
-    bottom: calc(var(--menu-h) + 16px + env(safe-area-inset-bottom, 0px));
-    right: var(--page-px);
-    color: white;
-    z-index: 2;
+.title-input,
+.content-input {
+    height: 50px;
+    width: 300px;
+    max-width: 100%;
 }
 
-/* Модальное окно ввода */
+.content-input {
+    padding: 10px 15px;
+    height: auto;
+    min-height: 50px;
+    max-height: 40dvh;
+    overflow-y: auto;
+    word-break: break-word;
+}
+
+.content-input:empty::before {
+    content: attr(data-placeholder);
+    color: rgba(255, 255, 255, 0.75);
+}
+
 .input-container {
     visibility: hidden;
     opacity: 0;
@@ -286,19 +226,19 @@ input::placeholder {
     left: 50%;
     transform: translate(-50%, -50%);
     height: auto;
-    max-height: calc(100dvh - 24px - env(safe-area-inset-bottom, 0px));
+    max-height: calc(100dvh - 30px);
     overflow-y: auto;
-    padding: 18px;
+    padding: 15px;
     border-radius: 30px;
-    width: 390px;
-    max-width: calc(100vw - 16px);
+    width: 350px;
+    max-width: calc(100vw - 20px);
     background-color: var(--main-bg);
     border: var(--btn-border);
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
     flex-direction: column;
-    gap: 14px;
+    gap: 15px;
     z-index: 3;
     transition: 0.25s;
 }
@@ -307,32 +247,6 @@ input::placeholder {
     visibility: visible;
     opacity: 1;
     pointer-events: auto;
-}
-
-.title-input,
-.content-input {
-    min-height: 56px;
-    width: 100%;
-    max-width: 100%;
-}
-
-.title-input {
-    height: 56px;
-}
-
-.content-input {
-    padding: 12px 16px;
-    height: auto;
-    min-height: 70px;
-    max-height: 36dvh;
-    overflow-y: auto;
-    overflow-wrap: anywhere;
-    word-break: break-word;
-}
-
-.content-input:empty::before {
-    content: attr(data-placeholder);
-    color: rgba(255, 255, 255, 0.75);
 }
 
 .bg {
@@ -355,27 +269,26 @@ input::placeholder {
     pointer-events: auto;
 }
 
-/* Слайдер подтверждения */
 .slider {
     position: relative;
-    height: 62px;
-    width: 100%;
-    max-width: 340px;
+    height: 60px;
+    width: 300px;
+    max-width: 100%;
     flex-shrink: 0;
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: var(--main-bg);
     box-shadow: 0 0 30px 5px #ffffff33 inset;
-    border-radius: 32px;
+    border-radius: 30px;
     overflow: hidden;
 }
 
 .text-slider {
     margin: 0;
-    color: rgba(255, 255, 255, 0.85);
-    font-family: var(--font-family);
-    font-size: 17px;
+    color: rgba(255, 255, 255, 0.75);
+    font-family: sans-serif;
+    font-size: 14px;
     user-select: none;
     pointer-events: none;
     z-index: 1;
@@ -386,8 +299,8 @@ input::placeholder {
     position: absolute;
     top: 50%;
     left: 2.5px;
-    height: 57px;
-    width: 57px;
+    height: 55px;
+    width: 55px;
     transform: translateY(-50%);
     background-color: rgba(255, 255, 255, 0.35);
     backdrop-filter: blur(4px);
@@ -400,13 +313,9 @@ input::placeholder {
 }
 
 .slider-circle.is-dragging {
-    height: 54px;
-    width: 60px;
+    height: 52.5px;
+    width: 57.5px;
     transition: height 0.1s, width 0.1s;
-}
-
-.slider-circle:active {
-    cursor: grabbing;
 }
 
 .icon-arrow,
@@ -428,48 +337,46 @@ input::placeholder {
     opacity: 0;
 }
 
-/* Корзина */
+.slider-circle:active {
+    cursor: grabbing;
+}
+
 .bin-header {
     height: auto;
     width: 100%;
-    padding: 0 var(--page-px);
+    padding: 0 10px;
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    gap: 10px;
+    gap: 8px;
     color: white;
     flex-shrink: 0;
 }
 
 .bin-title {
-    font-size: var(--fs-bin-title);
-    line-height: 1.2;
+    font-size: 30px;
     color: white;
 }
 
 .icon-bin-title {
-    height: 42px;
-    width: 42px;
-    flex-shrink: 0;
+    height: 40px;
+    width: 40px;
 }
 
-/* Нижняя панель действий */
 .more-bar {
     position: fixed;
-    bottom: calc(var(--menu-h) + env(safe-area-inset-bottom, 0px));
+    bottom: calc(65px + env(safe-area-inset-bottom, 0px));
     left: 50%;
-    min-height: 96px;
-    height: auto;
+    height: 100px;
     display: flex;
     align-items: center;
     border: 1px solid rgb(218, 218, 218);
     justify-content: center;
     flex-direction: column;
-    width: 450px;
-    max-width: calc(100% - 16px);
-    transform: translateX(-50%) translateY(calc(100% + 20px));
+    width: 101%;
+    transform: translateX(-50%) translateY(100%);
     gap: 10px;
-    padding: 12px 14px;
+    padding: 8px 14px;
     border-radius: 30px 30px 0 0;
     background-color: var(--bg-card);
     z-index: 2;
@@ -481,15 +388,12 @@ input::placeholder {
 }
 
 .delete-btn {
-    min-height: 58px;
-    height: auto;
+    height: 60px;
     width: 100%;
-    padding: 10px 16px;
     border: none;
     border-radius: 20px;
     box-shadow: none;
-    font-size: var(--fs-btn-action);
-    line-height: 1.25;
+    font-size: 20px;
     color: rgb(255, 86, 86);
     background-color: rgb(254, 160, 160);
     transition: 0.2s;
@@ -500,12 +404,11 @@ input::placeholder {
     background-color: rgb(255, 127, 127);
 }
 
-/* Нижнее меню */
 .menu {
     position: fixed;
     bottom: 0;
     left: 0;
-    height: calc(var(--menu-h) + env(safe-area-inset-bottom, 0px));
+    height: calc(70px + env(safe-area-inset-bottom, 0px));
     padding-bottom: env(safe-area-inset-bottom, 0px);
     width: 100%;
     background-color: white;
@@ -517,23 +420,20 @@ input::placeholder {
 
 .icon-home,
 .icon-bin {
-    height: 38px;
-    width: 38px;
+    height: 35px;
+    width: 35px;
     transition: 0.25s;
 }
 
 .home-btn,
 .bin-btn {
-    height: 56px;
-    width: 56px;
-    background: transparent;
+    height: 50px;
+    width: 50px;
+    background-color: transparent;
     border: none;
     outline: none;
     box-shadow: none;
     color: var(--main-bg);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
 }
 
 .home-btn:hover,
@@ -546,7 +446,6 @@ input::placeholder {
     fill: var(--main-bg);
 }
 
-/* Списки и карточки заметок */
 .list,
 .deleted-list {
     flex: 1;
@@ -557,7 +456,7 @@ input::placeholder {
     align-items: center;
     justify-content: flex-start;
     flex-direction: column;
-    gap: var(--stack-gap);
+    gap: 15px;
     overflow-y: auto;
     overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
@@ -574,49 +473,42 @@ input::placeholder {
     flex-shrink: 0;
     height: auto;
     width: 450px;
-    max-width: calc(100% - var(--page-px) * 2);
-    min-width: 0;
-    padding: 18px;
+    max-width: calc(100% - 30px);
+    padding: 15px;
     background-color: white;
     border-radius: 30px;
     display: flex;
     align-items: flex-start;
     justify-content: center;
     flex-direction: column;
-    gap: 12px;
+    gap: 10px;
 }
 
 .note-title {
-    font-size: var(--fs-note-title);
-    line-height: 1.28;
-    font-weight: 600;
+    font-size: 25px;
     flex-shrink: 0;
-    max-width: 100%;
-    padding-right: 46px;
-    overflow-wrap: anywhere;
+    padding-right: 36px;
     word-break: break-word;
 }
 
 .text {
-    font-size: var(--fs-note-text);
-    line-height: 1.5;
-    max-width: 100%;
+    font-size: 18px;
+    line-height: 1.45;
     color: var(--main-text);
-    overflow-wrap: anywhere;
     word-break: break-word;
 }
 
 .more-btn {
     position: absolute;
-    top: 16px;
-    right: 16px;
-    height: 38px;
-    width: 38px;
-    background: var(--line);
+    top: 15px;
+    right: 15px;
+    height: 32px;
+    width: 32px;
+    background: none;
     border: none;
     box-shadow: none;
     color: var(--main-text);
-    font-size: 17px;
+    font-size: 15px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -638,29 +530,23 @@ input::placeholder {
 
 .words-list {
     width: 100%;
-    max-width: 100%;
-    font-size: var(--fs-list-item);
-    line-height: 1.48;
-    padding-left: 28px;
+    font-size: 20px;
+    padding-left: 35px;
     display: flex;
     align-items: flex-start;
     justify-content: center;
     flex-direction: column;
     gap: 10px;
-    overflow-wrap: anywhere;
     word-break: break-word;
 }
 
 .recover-btn {
-    min-height: 54px;
-    height: auto;
+    height: 50px;
     width: 100%;
-    padding: 10px 16px;
     border: none;
     border-radius: 15px;
     background-color: #9dbffb;
-    font-size: var(--fs-btn-action);
-    line-height: 1.25;
+    font-size: 20px;
     color: #0c61f5;
     box-shadow: none;
     flex-shrink: 0;
@@ -673,8 +559,7 @@ input::placeholder {
 }
 
 .time {
-    font-size: var(--fs-time);
-    line-height: 1.3;
+    font-size: 15px;
     color: var(--text-secondary);
 }
 
@@ -684,7 +569,7 @@ input::placeholder {
     justify-content: center;
     flex-direction: column;
     gap: 10px;
-    padding: 25px 16px;
+    padding: 25px 15px;
     text-align: center;
 }
 
@@ -693,71 +578,158 @@ input::placeholder {
 }
 
 .empty-text {
-    font-size: var(--fs-empty);
-    line-height: 1.3;
+    font-size: 25px;
     color: #003494;
 }
 
-/* Увеличенный мобильный масштаб */
-@media (max-width: 600px) {
-    :root {
-        --header-h: 54px;
-        --menu-h: 76px;
-        --page-px: 10px;
-        --stack-gap: 14px;
+.format-container {
+    position: relative;
+    height: 60px;
+    width: 210px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    padding: 2.5px;
+    justify-content: space-between;
+    background-color: white;
+    border-radius: 60px;
+}
 
-        --fs-note-title: clamp(26px, 7.2vw, 32px);
-        --fs-note-text: clamp(22px, 6vw, 26px);
-        --fs-list-item: clamp(22px, 6vw, 26px);
-        --fs-input: clamp(21px, 5.7vw, 24px);
-        --fs-filter: clamp(20px, 5.5vw, 24px);
-        --fs-bin-title: clamp(28px, 7.8vw, 34px);
-        --fs-btn-action: clamp(21px, 5.7vw, 24px);
-        --fs-empty: clamp(24px, 6.6vw, 29px);
-        --fs-time: clamp(15px, 4.1vw, 18px);
+.layout {
+    position: absolute;
+    top: 2.5px;
+    left: 2.5px;
+    height: 55px;
+    width: 100px;
+    z-index: 1;
+    border-radius: 60px;
+    background-color: var(--main-bg);
+    box-shadow: 0 0 30px 5px #ffffff33 inset;
+    transition: 0.25s;
+}
+
+.format {
+    height: 60px;
+    width: 100px;
+    background-color: transparent;
+    box-shadow: none;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 15px;
+    border-radius: 0;
+    z-index: 2;
+    transition: 0.15s;
+}
+
+.format.is-active {
+    font-size: 20px;
+    color: white;
+}
+
+@media (max-width: 480px) {
+    header {
+        height: 46px;
+        padding: 0 12px;
+    }
+
+    main {
+        height: calc(100% - 46px);
+        gap: 12px;
+    }
+
+    .home-container,
+    .bin-container {
+        gap: 12px;
     }
 
     .filter-container {
+        height: 52px;
+        padding: 0 12px;
         gap: 8px;
     }
 
     .filter {
-        min-height: 50px;
-        padding: 9px 16px;
+        height: 44px;
+        padding: 0 14px;
+        font-size: 16px;
     }
 
     .format-container {
-        --seg-w: 96px;
-        height: 56px;
+        height: 54px;
+        width: 196px;
+    }
+
+    .layout {
+        height: 49px;
+        width: 92px;
+    }
+
+    .format {
+        height: 54px;
+        width: 92px;
+        font-size: 14px;
     }
 
     .format.is-active {
-        font-size: 20px;
+        font-size: 17px;
     }
 
     .search-wrapper {
-        height: 58px;
+        height: 52px;
+        max-width: calc(100% - 24px);
     }
 
     .open-btn {
-        height: 62px;
-        width: 62px;
-        bottom: calc(var(--menu-h) + 14px + env(safe-area-inset-bottom, 0px));
+        height: 54px;
+        width: 54px;
+        bottom: calc(80px + env(safe-area-inset-bottom, 0px));
+        right: 12px;
+    }
+
+    input,
+    .content-input {
+        font-size: 16px;
     }
 
     .note {
-        padding: 16px;
-        border-radius: 26px;
-        gap: 12px;
+        width: calc(100% - 24px);
+        max-width: calc(100% - 24px);
+        padding: 14px;
+        border-radius: 24px;
+    }
+
+    .bin-title {
+        font-size: 20px;
+    }
+
+    .note-title {
+        font-size: 20px;
+    }
+
+    .text {
+        font-size: 16px;
     }
 
     .words-list {
-        padding-left: 26px;
+        font-size: 16px;
+        padding-left: 24px;
     }
 
-    .input-container {
-        width: calc(100vw - 16px);
-        padding: 16px;
-        border-radius: 26px;
+    .recover-btn {
+        height: 44px;
+        font-size: 16px;
+    }
+
+    .delete-btn {
+        height: 52px;
+        font-size: 17px;
+    }
+
+    .time {
+        font-size: 13px;
+    }
+
+    .empty-text {
+        font-size: 19px;
     }
 }
